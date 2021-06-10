@@ -1,4 +1,6 @@
-1. сервис требует persistence, т.е. удерживание пользователя на одном из серверов в течении заданного промежутка времени
+1. Открывается соединение с состоянием TIME_WAIT и запись в столбце InActConn просуществует до тех пор, пока не истечет время ожидания соединения (обычный time-out ).
+   #все, что нашел про InActConn:
+   #http://www.austintek.com/LVS/LVS-HOWTO/HOWTO/LVS-HOWTO.ipvsadm.html#ActiveConn%23ActiveConn
 2. vagrantfile
    # -*- mode: ruby -*-
 # vi: set ft=ruby :
