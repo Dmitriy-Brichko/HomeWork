@@ -19,23 +19,18 @@
 * Ansible
 
 Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.
-```bash
-Я использую Windows 11, версия VirtualBox я посмотрел в "Oracle VM VirtualBox Менеджер"
-Графический интерфейс VirtualBox
-Версия 6.1.28 r147628 (Qt5.6.2)
-Copyright © 2021 Oracle Corporation and/or its affiliates. All rights reserved.
-
-PS C:\Users\79232> vagrant --version
-Vagrant 2.2.19
-
-# ansible установил внутри ubuntu, к решению приложил скриншот.
-vagrant@vagrant:~$ ansible --version
-ansible 2.9.6
+```markdown
+[root@centos8 ~]# vboxmanage --version
+6.1.28r147628
+[root@centos8 ~]# ansible --version
+ansible 2.9.27
   config file = /etc/ansible/ansible.cfg
-  configured module search path = ['/home/vagrant/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
-  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
   executable location = /usr/bin/ansible
-  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+  python version = 3.6.8 (default, Nov  2 2021, 13:01:57) [GCC 8.4.1 20200928 (R
+[root@centos8 ~]# vagrant --version
+Vagrant 2.2.6
 ```
 Задача 4 (*)
 ### Воспроизвести практическую часть лекции самостоятельно. Создать виртуальную машину. Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды
