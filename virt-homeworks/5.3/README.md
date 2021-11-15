@@ -19,15 +19,49 @@ https://hub.docker.com/username_repo.
 
 ### Решение задачи 1
 ```markdown
-[root@localhost vagrant]# docker build -t dbrichko/nginx:v1 .
+[root@centos7 docker]# docker pull dmitriybrichko/devops
+[root@centos7 docker]# docker run -d -p 9513:80 dmitriybrichko/devops
+[root@centos7 docker]# docker ps -a
+[root@centos7 docker]# docker exec -it ae319a27745b bash
+root@ae319a27745b:/# ls -l
+total 0
+drwxr-xr-x   1 root root  26 Nov 15 14:12 bin
+drwxr-xr-x   2 root root   6 Apr 24  2018 boot
+drwxr-xr-x   5 root root 340 Nov 15 14:33 dev
+drwxr-xr-x   1 root root  66 Nov 15 14:33 etc
+drwxr-xr-x   2 root root   6 Apr 24  2018 home
+drwxr-xr-x   1 root root  45 May 23  2017 lib
+drwxr-xr-x   2 root root  34 Sep 30 12:33 lib64
+drwxr-xr-x   2 root root   6 Sep 30 12:32 media
+drwxr-xr-x   2 root root   6 Sep 30 12:32 mnt
+drwxr-xr-x   2 root root   6 Sep 30 12:32 opt
+dr-xr-xr-x 247 root root   0 Nov 15 14:33 proc
+drwx------   2 root root  37 Sep 30 12:33 root
+drwxr-xr-x   1 root root  23 Nov 15 14:33 run
+drwxr-xr-x   1 root root  94 Nov 15 14:12 sbin
+drwxr-xr-x   2 root root   6 Sep 30 12:32 srv
+dr-xr-xr-x  13 root root   0 Nov 15 14:33 sys
+drwxrwxrwt   1 root root   6 Nov 15 14:13 tmp
+drwxr-xr-x   1 root root  19 Sep 30 12:32 usr
+drwxr-xr-x   1 root root  28 Nov 15 14:12 var
+root@ae319a27745b:/# cd  /var/www/html/
+root@ae319a27745b:/var/www/html# ls -l
+total 8
+-rw-r--r-- 1 root root 120 Nov 15 14:11 index.html
+-rw-r--r-- 1 root root 612 Nov 15 14:13 index.nginx-debian.html
+root@ae319a27745b:/var/www/html# cat index.html
+<html>
+<head>
+Hey, Netology
+</head>
+<body>
+<h1>My name is Dmitry Brichko!
+<h1>I am DevOps Engineer!</h1>
+</body>
+</html>
 
-[root@localhost vagrant]# docker pull centos/nginx-114-centos8
-[root@localhost vagrant]# docker build -t centos/nginx-114-centos8 .
-[root@localhost vagrant]# docker run -d -p 8080:80 centos/nginx-114-centos8
-docker run -t -i centos/nginx-114-centos8 /bin/bash
-docker container ls
-
-
+http://51.250.5.69:9513/
+https://hub.docker.com/repository/docker/dmitriybrichko/devops
 ```
 ---
 ### Задача 2
@@ -71,11 +105,29 @@ docker container ls
 * Подключитесь во второй контейнер и отобразите листинг и содержание файлов в /data контейнера.
 ### Решение задачи 3
 ```markdown
-
+[root@centos7 ~]# mkdir /date/
+[root@centos7 ~]# docker pull kinogmt/centos-ssh
+[root@centos7 ~]# docker run -v /date:/date -d --name centos1 kinogmt/centos-ssh
+[root@centos7 ~]# docker exec -it centos1 /bin/bash
+[root@df9a670b624e /]# touch /date/file1
+[root@df9a670b624e /]# echo centos1>/date/file1
+[root@df9a670b624e /]# exit
+[root@centos7 ~]# cat /date/file1
+centos1
+[root@centos7 ~]# echo debian1>file2
+[root@centos7 ~]# dir
+file1  file2
+[root@centos7 ~]# docker pull mdoerges/debian-buster-nginx
+[root@centos7 ~]# docker run -v /date:/date -d --name debian1 mdoerges/debian-buster-nginx
+[root@centos7 ~]# docker exec -it debian1 /bin/bash
+root@904ec8b876da:/# dir /date/
+file1  file2
+root@904ec8b876da:/# cat /date/file1 && cat /date/file2
+centos1
+debian1
 ```
 ---
 Задача 4 (*)
 ### Воспроизвести практическую часть лекции самостоятельно.
 
 Соберите Docker образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
-### Решение задачи 4
