@@ -20,20 +20,26 @@
 
 Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.
 ```markdown
-[root@centos8 ~]# vboxmanage --version
-6.1.28r147628
-[root@centos8 ~]# ansible --version
-ansible 2.9.27
-  config file = /etc/ansible/ansible.cfg
-  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share
-  ansible python module location = /usr/lib/python3.6/site-packages/ansible
-  executable location = /usr/bin/ansible
-  python version = 3.6.8 (default, Nov  2 2021, 13:01:57) [GCC 8.4.1 20200928 (R
-[root@centos8 ~]# vagrant --version
+[root@centos7 ~]# vboxmanage --version
+6.0.24r139119
+[root@centos7 ~]# vagrant --version
 Vagrant 2.2.6
+[root@centos7 ~]# ansible --version
+ansible 2.9.25
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 2.7.5 (default, Nov 16 2020, 22:23:17) [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+[root@centos7 ~]#
 ```
 Задача 4 (*)
 ### Воспроизвести практическую часть лекции самостоятельно. Создать виртуальную машину. Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды
 ```markdown
-Не получилось сделать, во вложении скриншот, в инете не нашел, как решить проблему...
+1. Создал виртуалку CentOS (пробовал 7 и 8 версию) в яндекс облаке
+2. Поставил virtualbox, vagrant, ansible, все конфигурациооные файлы с лекции создал, отключил все блокировки портов
+3. Виртуалка создается с ошибкой, установил GUI, чтобы посмотреть что там в virtualbox происходит, подключился по xrdp, 
+она запущенна, но подключиться к ней не могу.
+4. 5 дней уже сижу, две лекции пропустил, другие домашки не делал, больше сил нет, у меня не получается ее запустить...
+5. скриншот ошибки добавил в решение.
 ```
