@@ -60,7 +60,7 @@ Hey, Netology
 </body>
 </html>
 
-http://51.250.5.69:9513/
+http://51.250.5.247:9513/
 https://hub.docker.com/repository/docker/dmitriybrichko/devops
 ```
 ---
